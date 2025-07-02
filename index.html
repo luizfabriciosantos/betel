@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Igreja Comunidade Betel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            background: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+        .central-window {
+            background: #fff;
+            max-width: 600px;
+            margin: 60px auto;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+            border-radius: 12px;
+            padding: 32px 24px;
+            text-align: center;
+        }
+        h1 {
+            color: #2d3e50;
+            margin-bottom: 8px;
+        }
+        p {
+            color: #555;
+            margin-bottom: 24px;
+        }
+        .map-container {
+            width: 100%;
+            height: 350px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        @media (max-width: 700px) {
+            .central-window {
+                margin: 16px;
+                padding: 16px 6px;
+            }
+            .map-container {
+                height: 220px;
+            }
+        }
+        /* Instagram link styles */
+        .instagram-link {
+            position: fixed;
+            top: 18px;
+            right: 18px;
+            z-index: 10;
+            background: rgba(255,255,255,0.85);
+            border-radius: 18px;
+            padding: 8px 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            transition: background 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00860b;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1.05em;
+            letter-spacing: 0.5px;
+        }
+        .instagram-link:hover {
+            background: #f7e1ff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Instagram Text Link -->
+    <a class="instagram-link" href="https://www.instagram.com/comunidadebetelsede/" target="_blank" rel="noopener" aria-label="Instagram Comunidade Betel">
+        Instagram
+    </a>
+    <div class="central-window" style="max-width:350px; padding:18px 10px; position:fixed; left:50%; transform:translateX(-150%); bottom:-2%;">
+        <h1 style="font-size:1.3em; margin-bottom:4px;">Igreja Betel</h1>
+        <p style="font-size:0.95em; margin-bottom:14px;">
+            Venha nos visitar! Nosso endereço:<br>
+            Rua dos cachorros, 39 - Parque Rodrigo Barreto, Arujá/SP
+        </p>
+        <div class="map-container" style="height:160px;">
+            <div id="google-maps-app" style="width:100%;height:100%;">
+            <!-- O app do Google Maps será carregado aqui -->
+            </div>
+        </div>
+    </div>
+        <!-- Video de fundo ocupando toda a tela -->
+        <img src="fundo.jpg" alt="Fundo Igreja" style="position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:0;pointer-events:none;filter:brightness(0.7);background:#000;" />
+        <style>
+            .central-window, .map-container {
+            position: relative;
+            z-index: 1;
+            }
+        </style>
+    </div>
+    <footer style="position:fixed;bottom:0;left:0;width:100vw;text-align:center;padding:10px 0;background:transparent;z-index:2;font-size:0.98em;color:#00851d;pointer-events:none;user-select:none;">
+        &copy; 2025 Igreja Comunidade Betel. Desenvolvido por Betel solutions.
+    </footer>
+    <script>
+        // Substitua pelo endereço real da igreja
+        const endereco = "-23.376449, -46.315490";
+        // Adiciona &t=k para visão satélite
+        const mapsUrl = `https://www.google.com/maps?q=${encodeURIComponent(endereco)}&t=k&output=embed`;
+
+        const div = document.getElementById('google-maps-app');
+        div.innerHTML = `<iframe src="${mapsUrl}" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>`;
+    </script>
+</body>
+</html>
